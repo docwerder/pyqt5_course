@@ -1,8 +1,8 @@
 import sys
-
+import PyQt5.QtWidgets
 from PyQt5.QtWidgets import *
 
-class DlgMain(QDialog):
+class DlgMain(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("My GUI")
@@ -21,4 +21,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     dlgMain = DlgMain()
     dlgMain.show()
+    app.setStyle('Oxygen')
+    print(PyQt5.QtWidgets.QStyleFactory.keys())
     sys.exit(app.exec_())
