@@ -16,13 +16,19 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.n_times_clicked = 0
-
         self.setWindowTitle("My App")
+        self.label = QLabel()
+        self.input = QLineEdit()
+        self.input.textChanged.connect(self.label.setText)
 
-        self.button = QPushButton("Press Me!")
-        self.button.clicked.connect(self.button_was_clicked)
-        self.windowTitleChanged.connect(self.the_window_title_changed)
+        self.layout = QVBoxLayout()
+        self.layout.addWidget(self.input)
+        self.layout.addWidget(self.label)
+
+        self.container = QWidget()
+        self.container.setLayout(self.layout)
+
+        self.setCentralWidget(self.container)
 
         # Old stuff from the former files...
         # self.button.setCheckable(True)
@@ -32,7 +38,7 @@ class MainWindow(QMainWindow):
 
 
         # Set the central widget of the Window.
-        self.setCentralWidget(self.button)
+
 
     def button_was_clicked(self):
         self.setWindowTitle('My Oneshot App')
@@ -42,14 +48,9 @@ class MainWindow(QMainWindow):
 
 
     def the_window_title_changed(self, windowTitle):
-
         print("Current WindowTitle: ", windowTitle)
         if windowTitle == "Something went wrong":
             self.button.setDisabled(True)
-
-
-
-
 
     def button_was_toggled(self, checked):
         print('Checked? ', checked)

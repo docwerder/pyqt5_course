@@ -1,9 +1,9 @@
 import sys
 
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QVBoxLayout  # <2>
-from PySide6.QtWidgets import QWidget  # <1>
-from PySide6.QtWidgets import (
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QVBoxLayout  # <2>
+from PyQt6.QtWidgets import QWidget  # <1>
+from PyQt6.QtWidgets import (
     QApplication,
     QCheckBox,
     QComboBox,
@@ -65,6 +65,9 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 window = MainWindow()
+window2 = MainWindow()
+app.setStyle('MacOS')
 window.show()
 
-app.exec_()
+
+sys.exit(app.exec())

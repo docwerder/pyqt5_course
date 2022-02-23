@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(QSize(400, 300))
         self.button.setCheckable(True)
         self.button_is_checked = True
-        self.button.released.connect(self.button_was_released)
+
         self.button.clicked.connect(self.button_was_clicked)
         self.button.clicked.connect(self.button_was_toggled)
         self.button.setChecked(self.button_is_checked)
@@ -24,7 +24,9 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.button)
 
     def button_was_clicked(self):
-        print('The button was clicked')
+        self.button.setText('You already clicked the button!')
+        self.button.setEnabled(False)
+        self.setWindowTitle('My Oneshot App')
 
     def button_was_toggled(self, checked):
         print('Checked? ', checked)
