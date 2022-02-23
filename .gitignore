@@ -5,3 +5,4 @@ __pycache__
 lib/
 bin/
 .idea/
+.idea/pyqt5_course.iml
