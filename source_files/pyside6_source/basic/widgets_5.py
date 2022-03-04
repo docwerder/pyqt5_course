@@ -20,14 +20,13 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def index_changed(self, i):  # Not an index, i is a QListItem
-        print(i.text())
+        print(type(i.text()))
 
     def text_changed(self, s):  # s is a str
         print(s)
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())

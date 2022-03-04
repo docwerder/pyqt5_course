@@ -15,7 +15,8 @@ class MainWindow(QMainWindow):
 
         widget.currentIndexChanged.connect(self.index_changed)
         widget.currentTextChanged.connect(self.text_changed)
-
+        widget.setEditable(True)
+        widget.setInsertPolicy(QComboBox.InsertPolicy.InsertAlphabetically)
         self.setCentralWidget(widget)
 
     def index_changed(self, i):  # i is an int
@@ -25,9 +26,8 @@ class MainWindow(QMainWindow):
         print(s)
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
