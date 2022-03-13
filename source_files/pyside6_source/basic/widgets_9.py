@@ -11,7 +11,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("My App")
 
         widget = QDial()
-        widget.setRange(-10, 100)
+        widget.setRange(0, 360)
         widget.setSingleStep(0.5)
 
         widget.valueChanged.connect(self.value_changed)
@@ -34,9 +34,14 @@ class MainWindow(QMainWindow):
         print("Released")
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+# app = QApplication(sys.argv)
+#
+# window = MainWindow()
+# window.show()
+#
+# app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())

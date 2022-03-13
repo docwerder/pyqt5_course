@@ -23,25 +23,26 @@ class MainWindow(QMainWindow):
 
         pagelayout = QVBoxLayout()
         button_layout = QHBoxLayout()
+        button_layout.layoutColumnStretch(1,1,1)
         self.stacklayout = QStackedLayout()
 
         pagelayout.addLayout(button_layout)
         pagelayout.addLayout(self.stacklayout)
 
-        btn = QPushButton("red")
-        btn.pressed.connect(self.activate_tab_1)
-        button_layout.addWidget(btn)
+        btn_red = QPushButton("red")
+        btn_red.clicked.connect(self.activate_tab_1)
+        button_layout.addWidget(btn_red)
         self.stacklayout.addWidget(Color("red"))
 
-        btn = QPushButton("green")
-        btn.pressed.connect(self.activate_tab_2)
-        button_layout.addWidget(btn)
+        btn_green = QPushButton("green")
+        btn_green.pressed.connect(self.activate_tab_2)
+        button_layout.addWidget(btn_green)
         self.stacklayout.addWidget(Color("green"))
 
-        btn = QPushButton("yellow")
-        btn.pressed.connect(self.activate_tab_3)
-        button_layout.addWidget(btn)
-        self.stacklayout.addWidget(Color("yellow"))
+        btn_yellow = QPushButton("yellow")
+        btn_yellow.pressed.connect(self.activate_tab_3)
+        button_layout.addWidget(btn_yellow)
+        self.stacklayout.addWidget(QLabel('Hallo welt'))
 
         widget = QWidget()
         widget.setLayout(pagelayout)
@@ -57,9 +58,9 @@ class MainWindow(QMainWindow):
         self.stacklayout.setCurrentIndex(2)
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    print(sys.path)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())

@@ -6,6 +6,15 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from layout_colorwidget import Color
 
 
+
+
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -16,9 +25,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())

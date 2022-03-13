@@ -20,18 +20,19 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("My App")
 
         tabs = QTabWidget()
-        tabs.setTabPosition(QTabWidget.West)
+        tabs.setTabPosition(QTabWidget.North)
         tabs.setMovable(True)
-
+        tabs.setDocumentMode(True)
         for n, color in enumerate(["red", "green", "blue", "yellow"]):
+            print('n: ', n)
+            print('color: ', color)
             tabs.addTab(Color(color), color)
 
         self.setCentralWidget(tabs)
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec_()
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
